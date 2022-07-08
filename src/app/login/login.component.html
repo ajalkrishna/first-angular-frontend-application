@@ -1,0 +1,114 @@
+<div class="login pb-5">
+    <div class="container-fluid">
+        <div class="row ">
+            <div class="col-lg-8 col-md-10 login-col mx-auto shadow">
+                <div class="row">
+                    <!-- imagepart -->
+                    <div class="col-0 col-md-4 col-lg-6 imagepart">
+                    </div>
+                    <!-- loginpart -->
+                    <div class="col-12 col-md-8 col-lg-6 loginPart bg-light">
+                        <!-- header -->
+                        <div class="header d-flex justify-content-between ">
+                            <p class="head">Sign In</p>
+                            <div>
+                                <i class="fab fa-facebook-f fb"></i>
+                                <i class="fab fa-twitter tw ms-3"></i>
+                            </div>
+                        </div>
+
+                        <!-- form -->
+                        <form class="form" [formGroup]='userLoginForm' (ngSubmit)='userLoginForm.valid && submitForm()'
+                            #formRef='ngForm'>
+
+                            <!-- UserType Selection -->
+                            <div class="mb-2">
+                                <div class="form-check form-check-inline" *ngFor='let type of userTypeSelect'>
+                                    <input type="radio" name='userType' formControlName='userType'
+                                        class="form-check-input" id={{type}} value={{type}}>
+                                    <label for={{type}} class="form-check-label">{{type|titlecase}}</label>
+                                </div>
+                                <div
+                                    *ngIf='formRef.submitted || (userType.invalid && (userType.touched || userType.dirty))'>
+                                    <p class="text-danger fw-bold" *ngIf="userType.errors?.['required']">*Choose one
+                                        option
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- UserName -->
+                            <div class="mb-3">
+                                <div class="input-group">
+                                    <span class="input-group-text">
+                                        <fa-icon [icon]='user'></fa-icon>
+                                    </span>
+                                    <input type="text" class="form-control" formControlName='username'
+                                        placeholder="Username" name="uname" id="uname">
+                                </div>
+                                <div
+                                    *ngIf='formRef.submitted || ((username.touched || username.dirty) && username.invalid)'>
+                                    <p class="text-danger fw-bold" *ngIf="username.errors?.['required']">*Username is
+                                        Mandatory
+                                    </p>
+                                </div>
+                            </div>
+                            <!-- Password -->
+                            <div class="mb-3">
+                                <div class="input-group">
+                                    <span class="input-group-text">
+                                        <fa-icon [icon]='key'></fa-icon>
+                                    </span>
+                                    <input type="text" class="form-control" formControlName='password'
+                                        placeholder="Password" name="pword" id="pword">
+                                </div>
+                                <div
+                                    *ngIf='formRef.submitted || (password.invalid && (password.touched || password.dirty))'>
+                                    <p class="text-danger fw-bold" *ngIf="password.errors?.['required']">*Password is
+                                        Mandatory
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Signin button -->
+                            <button type="submit" class="btn w-100 text-white fw-bold">Sign in <fa-icon [icon]='signin'>
+                                </fa-icon></button>
+                        </form>
+                        <!-- remember/forgot -->
+                        <div class="d-flex justify-content-between mt-3">
+                            <div class="form-check">
+                                <input type="checkbox" name="remember" id="remember" class="form-check-input">
+                                <label for="remember">Remember Me</label>
+                            </div>
+                            <div class="forgot">
+                                <a>Forgot Password</a>
+                            </div>
+                        </div>
+                        <!-- signup -->
+                        <div class="signup text-center mt-4">
+                            <p>Not a Member? <span><a role="button" (click)='gotoSignup()'>Sign Up</a></span></p>
+                        </div>
+                        
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <p class="modal-text">Login Successfull!!</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

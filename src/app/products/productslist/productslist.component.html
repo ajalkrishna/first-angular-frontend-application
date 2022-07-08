@@ -1,0 +1,68 @@
+<div class="adminPage" *ngIf='loginType=="admin"'>
+    <h1 class="text-center head-text ">PRODUCTS </h1>
+
+    <table class="table border bg-light">
+        <thead class="text-center">
+            <tr>
+                <th>NO</th>
+                <th>TITLE</th>
+                <th>PRICE</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor='let prod of productsData'>
+                <td>{{prod.id}}</td>
+                <td>{{prod.title}}</td>
+                <td>{{prod.price}}</td>
+                <td><i class="bi bi-pencil" role="button"></i></td>
+                <td><i class="bi bi-trash" role="button"></i></td>
+
+            </tr>
+        </tbody>
+    </table>
+</div>
+<!-- User Product DashBoard -->
+<div class="userPage" *ngIf='loginType=="user"'>
+    <!-- search bar -->
+    <div class="d-flex justify-content-center">
+        <div class="btn-group">
+            <button type="button" class="dropdown-toggle btn-secondary btn" data-bs-toggle="dropdown">
+                Category
+            </button>
+            <ul class="dropdown-menu" (click)='categorySelection($event)'>
+                <li value="title">Title</li>
+                <li value="category">Category</li>
+            </ul>
+        </div>
+        <div class="search">
+            <input type="text" class="form-control mx-auto" [(ngModel)]='searchTerm'>
+        </div>
+    </div>
+    
+    
+
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">
+        <div class="col" *ngFor='let prod of productsData | search :searchTerm : searchType'>
+            <div class="card h-100">
+                <img src="{{prod.image}}" class="card-img">
+                <div class="card-body bg-light">
+                    <div class="badge">
+                        <p>{{prod.category}}</p>
+
+                    </div>
+                    <h4 class="card-title">{{prod.title}}</h4>
+                    <p class="lead">Rating: {{prod.rating}}/5</p>
+                </div>
+                <div class="bg-light d-flex justify-content-between pb-3">
+                    <h3 class="price ms-4 text-danger">{{prod.price |currency}}</h3>
+                    <div class="d-flex me-3">
+                        <button class="btn btn-cart me-2" (click)='addToCart(prod)'>Cart <fa-icon [icon]='cart'>
+                            </fa-icon></button>
+                        <button class="btn btn-know">Know more</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,29 @@
+<div *ngIf='cartItems.length!=0'>
+    <h2 class="text-center text-danger mt-3">Products</h2>
+    <table class="table border bg-light">
+        <thead class="text-center">
+            <tr>
+                <th>TITLE</th>
+                <th>CATEGORY</th>
+                <th>PRICE</th>
+                <th>RATING</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody class="text-center">
+            <tr *ngFor='let prod of cartItems'>
+                <td>{{prod.title}}</td>
+                <td>{{prod.category}}</td>
+                <td>{{prod.price}}</td>
+                <td>{{prod.rating}}</td>
+                <td>
+                    <fa-icon [icon]='delete' role="button" (click)='deleteFromCart(prod)'></fa-icon>
+                </td>
+
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+<p class="display-3 text-center" *ngIf='cartItems.length==0'>Cart Is empty</p>

@@ -1,0 +1,56 @@
+<div class="userPage">
+    <div class="container pt-3" *ngIf='userData.length!=0'>
+        <div class="d-flex justify-content-between">
+            <fa-icon [icon]='user' role="button" class="fs-2 text-danger d-block text-end" data-bs-toggle="offcanvas"
+                data-bs-target="#account"></fa-icon>
+
+
+            <p class="badge border bg-warning"></p>
+            <div>
+
+                <ul class="nav nav-pills">
+                    <li class="nav-item ">
+                        <a class="nav-link" routerLink='products' data-bs-toggle="collapse"
+                            data-bs-target=".offcanvas.hide">Products</a>
+                    </li>
+                    <li class="nav-item ms-3">
+                        <a class="nav-link" routerLink='usercart'>Cart<fa-icon [icon]='cart'></fa-icon><sup class="badge bg-warning text-white rounded-circle"> {{cartCount}}</sup></a>
+                    </li>
+                </ul>
+                <!-- <h3>Welcome Back <span class="text-success fw-bold">{{userData.name}},</span></h3> -->
+            </div>
+        </div>
+
+
+        <!-- velcome msg -->
+
+        <div class="offcanvas offcanvas-start shadow" id="account" data-bs-backdrop="false">
+            <div class="top d-flex justify-content-between">
+                <div class="h4 text-white">Dashboard</div>
+                <fa-icon [icon]='close' class="text-white" data-bs-dismiss='offcanvas'></fa-icon>
+            </div>
+            <div class="offcanvas-body">
+
+                <div class="subject text-center lh-1">
+                    <img src="../../assets/user-regular.svg" width="100px">
+                    <h3 class="text-white">{{userData.name | titlecase}}</h3>
+                    <p>{{userData.email}}</p>
+                </div>
+
+                <ul class="nav nav-pills justify-content-evenly">
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink='products' data-bs-toggle="collapse"
+                            data-bs-target=".offcanvas.hide">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink='usercart'>Cart <fa-icon [icon]='cart'></fa-icon></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <router-outlet></router-outlet>
+
+    </div>
+
+</div>

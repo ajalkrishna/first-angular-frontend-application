@@ -1,0 +1,50 @@
+.login{
+    background-image: url(../../assets/pexels-photo-2882566.jpeg);
+    background-size: cover;
+    
+    height: 800px;
+}
+.login-col{
+    margin-top: 7rem;
+}
+
+.btn{
+    border-radius: 0;
+    background-color: rgb(214, 67, 9);
+
+}
+.btn:hover{
+    background-color: rgb(163, 21, 21);
+}
+
+.loginPart{
+    padding: 10rem 2rem;
+}
+.imagepart{
+    background-image: url(../../assets/lock.jfif);
+    background-size: cover;
+}
+.header .head{
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    font-size: 2rem;
+}
+i{
+    font-size: 1.5rem;
+    padding-top: 1rem;
+}
+.fb{
+    color: #4267B2
+}
+.tw{
+    color: #00ACEE;
+
+}
+label,a{
+    font-family: 'Roboto Slab', serif;
+}
+.signup a{
+    color: rgb(233, 98, 2);
+    text-decoration: none;
+}
+

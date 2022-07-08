@@ -1,0 +1,27 @@
+.admin-page{
+    padding-top:4rem;
+    // background-image: linear-gradient(rgb(89, 226, 89),lightgreen);
+    background-color: #a3b6e756;
+    min-height: 800px;
+}
+
+.form-control{
+    background-color: #a3b6e756;
+    box-shadow: none;
+    height: 3rem;
+
+}
+.form-control::placeholder{
+    color: blue;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+
+.form-control:hover{
+    // border: 1px solid rgb(255, 255, 255);
+    box-shadow: 0px 0px 3px red;
+}
+form p{
+    font-family: Haettenschweiler, sans-serif;
+}

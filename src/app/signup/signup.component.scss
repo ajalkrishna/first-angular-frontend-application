@@ -1,0 +1,29 @@
+.page{
+    background-image: url(../../assets/pexels-photo-6863190.jpeg);
+    background-size: cover;
+    padding: 8rem 0rem;
+}
+
+.form-head{
+    color: #362222;
+}
+.form{
+    background-color: #EEEEEE; 
+    font-family: 'Roboto Slab', serif;
+    color: #0F0E0E;
+}
+.btn{
+    background-color: #541212;
+    color: white;
+}
+.form-control{
+    border: none;
+    background-color: transparent;
+    box-shadow: none;
+    border-radius: 0;
+    border-bottom: 1px solid #362222;
+    
+}
+.check{
+    border: 1px solid #362222;
+}
